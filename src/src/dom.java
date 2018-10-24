@@ -18,9 +18,9 @@ import org.w3c.dom.Document;
  */
 public class dom 
 {
-    Document doc = null; //este doc representa al al arbol dom
+    Document doc = null; //este doc representa al arbol dom
     
-    public int abrir_xml_dom (File Fichero)
+    public int abrir_xml_dom (File fichero)
     {
         try 
         {
@@ -28,7 +28,7 @@ public class dom
            factory.setIgnoringComments(true);//Para que no tenga en cuenta los comments
            factory.setIgnoringElementContentWhitespace(true);//Para que no tenga en cuenta los espacios en blanco
            DocumentBuilder builder = factory.newDocumentBuilder();//Cargamos aqui la estructura del arbol dom a partir del xml
-           doc = (Document) builder.parse(Fichero);
+           doc = builder.parse(fichero);
            return 0;
         } 
         catch (Exception e) 
