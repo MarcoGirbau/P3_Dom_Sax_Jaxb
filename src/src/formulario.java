@@ -9,11 +9,12 @@ import java.io.File;
 import org.w3c.dom.Document;
 
 /**
- * @author xp
+ * @author Marco Girbau
  */
 public class formulario extends javax.swing.JFrame 
 {
     dom gestordom = new dom();
+    sax gestorsax = new sax();
     /**
      * Creates new form formulario
      */

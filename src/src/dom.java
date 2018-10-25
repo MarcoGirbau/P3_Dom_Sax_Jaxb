@@ -14,7 +14,7 @@ import org.w3c.dom.Document;
 
 /**
  *
- * @author xp
+ * @author Marco Girbau
  */
 public class dom 
 {
