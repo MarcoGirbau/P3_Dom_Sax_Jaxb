@@ -49,7 +49,7 @@ public class dom
         
         for(int i = 0; i < nodelist.getLength(); i++)//Procesamos todos los nodos hijos
         {
-            node = nodelist.item(0);
+            node = nodelist.item(i);
             
             if(node.getNodeType() == Node.ELEMENT_NODE)
             {
@@ -84,5 +84,9 @@ public class dom
             }
         }
         return datos;
+    }
+
+    String recorrerdomymostrar(Document doc) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
