@@ -15,6 +15,7 @@ import org.w3c.dom.Document;
 public class formulario extends javax.swing.JFrame 
 {
     dom gestordom = new dom();
+    jaxb gestorjaxb = new jaxb();
 //    sax gestorsax = new sax();
     /**
      * Creates new form formulario
@@ -61,7 +62,9 @@ public class formulario extends javax.swing.JFrame
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
+        jButtonDOM = new javax.swing.JButton();
+        jButtonSAX = new javax.swing.JButton();
+        jButtonJAXB = new javax.swing.JButton();
         label1 = new java.awt.Label();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -87,19 +90,32 @@ public class formulario extends javax.swing.JFrame
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        jButton1.setText("Mostrar DOM");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        jButtonDOM.setText("Mostrar DOM");
+        jButtonDOM.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jButton1MousePressed(evt);
+                jButtonDOMMousePressed(evt);
             }
         });
 
-        label1.setText("label1");
+        jButtonSAX.setText("Mostrar SAX");
+        jButtonSAX.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButtonSAXMousePressed(evt);
+            }
+        });
+
+        jButtonJAXB.setText("Mostrar JAXB");
+        jButtonJAXB.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButtonJAXBMousePressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -110,18 +126,27 @@ public class formulario extends javax.swing.JFrame
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(label1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButton1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(label1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(232, 232, 232))
+                                .addComponent(jButtonDOM)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButtonSAX, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButtonJAXB, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(89, 89, 89)))
+                .addGap(143, 143, 143))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(6, 6, 6)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonDOM, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonSAX)
+                    .addComponent(jButtonJAXB))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -140,9 +165,19 @@ public class formulario extends javax.swing.JFrame
         jMenu1.add(jMenuItem1);
 
         jMenuItem2.setText("Abrir SAX");
+        jMenuItem2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jMenuItem2MousePressed(evt);
+            }
+        });
         jMenu1.add(jMenuItem2);
 
-        jMenuItem3.setText("Abrir SAX");
+        jMenuItem3.setText("Abrir JAXB");
+        jMenuItem3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jMenuItem3MousePressed(evt);
+            }
+        });
         jMenu1.add(jMenuItem3);
 
         jMenuBar1.add(jMenu1);
@@ -177,11 +212,35 @@ public class formulario extends javax.swing.JFrame
         }
     }//GEN-LAST:event_jMenuItem1MousePressed
 
-    private void jButton1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MousePressed
-        String texto = gestordom.recorrerdomymostrar(gestordom.doc);
+    private void jButtonDOMMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonDOMMousePressed
+        jTextArea1.append(gestordom.recorrerdomymostrar());
+    }//GEN-LAST:event_jButtonDOMMousePressed
+
+    private void jButtonSAXMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSAXMousePressed
         
-        jTextArea1.append(texto);
-    }//GEN-LAST:event_jButton1MousePressed
+    }//GEN-LAST:event_jButtonSAXMousePressed
+
+    private void jMenuItem3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem3MousePressed
+        File fichero = selecDia();
+        int gjaxb = gestorjaxb.abrir_XML_JAXB(fichero);
+        
+        if(gjaxb == 0)
+        {
+            label1.setText("Se ha obtenido el JAXB.");
+        }
+        else if(gjaxb == -1)
+        {
+            label1.setText("No se ha podido obtener el JAXB.");
+        }
+    }//GEN-LAST:event_jMenuItem3MousePressed
+
+    private void jMenuItem2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem2MousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem2MousePressed
+
+    private void jButtonJAXBMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonJAXBMousePressed
+        jTextArea1.setText(gestorjaxb.recorrerJAXByMostrar());
+    }//GEN-LAST:event_jButtonJAXBMousePressed
 
     /**
      * @param args the command line arguments
@@ -219,7 +278,9 @@ public class formulario extends javax.swing.JFrame
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButtonDOM;
+    private javax.swing.JButton jButtonJAXB;
+    private javax.swing.JButton jButtonSAX;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JFileChooser jFileChooser1;
     private javax.swing.JMenu jMenu1;

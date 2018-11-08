@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <schemas xmlns='http://xml.netbeans.org/schema/JAXBWizConfig' destdir='build/generated-sources/jaxb' projectName='P3_MarcoGirbau' version='1.0'>
-	<schema type='-xmlschema' package='jaxb' name='LibrosJava'>
+	<schema type='-xmlschema' package='libros' name='javalibro'>
 		<xjc-options>
 		</xjc-options>
 		<schema-sources>
-			<schema-source location='xml-resources/jaxb/LibrosJava/LibrosEsquema.xsd' origLocation='../../../Marco Girbau/Acceso a Datos/LibrosEsquema.xsd'/>
+			<schema-source location='xml-resources/jaxb/javalibro/LibrosEsquema.xsd' origLocation='../../../Marco Girbau/Acceso a Datos/LibrosEsquema.xsd'/>
 		</schema-sources>
 		<bindings>
 		</bindings>

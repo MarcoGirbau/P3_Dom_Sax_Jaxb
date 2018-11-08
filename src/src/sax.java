@@ -6,11 +6,11 @@
 package src;
 
 import java.io.File;
-import java.util.jar.Attributes;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
-import jdk.internal.org.xml.sax.SAXException;
-import jdk.internal.org.xml.sax.helpers.DefaultHandler;
+import org.xml.sax.Attributes;
+import org.xml.sax.SAXException;
+import org.xml.sax.helpers.DefaultHandler;
 
 /**
  * @author Marco Girbau

@@ -13,7 +13,6 @@ import org.w3c.dom.NodeList;
 import org.w3c.dom.Document;
 
 /**
- *
  * @author Marco Girbau
  */
 public class dom 

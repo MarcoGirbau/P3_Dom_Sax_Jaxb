@@ -48,11 +48,17 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Abrir SAX"/>
               </Properties>
+              <Events>
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jMenuItem2MousePressed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem3">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Abrir SAX"/>
+                <Property name="text" type="java.lang.String" value="Abrir JAXB"/>
               </Properties>
+              <Events>
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jMenuItem3MousePressed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -61,6 +67,7 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="menuBar" type="java.lang.String" value="jMenuBar1"/>
@@ -102,16 +109,23 @@
                       <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                              </Group>
                               <Component id="label1" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jButtonDOM" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="jButtonSAX" min="-2" pref="97" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="jButtonJAXB" min="-2" pref="111" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
-                      <Component id="jScrollPane1" min="-2" pref="260" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Component id="jScrollPane1" min="-2" pref="260" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="232" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="143" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -119,7 +133,11 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                  <Component id="jButton1" min="-2" pref="28" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jButtonDOM" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                      <Component id="jButtonSAX" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButtonJAXB" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jScrollPane1" min="-2" pref="250" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -145,18 +163,31 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="jButtonDOM">
           <Properties>
             <Property name="text" type="java.lang.String" value="Mostrar DOM"/>
           </Properties>
           <Events>
-            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton1MousePressed"/>
+            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonDOMMousePressed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="jButtonSAX">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Mostrar SAX"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonSAXMousePressed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="jButtonJAXB">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Mostrar JAXB"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonJAXBMousePressed"/>
           </Events>
         </Component>
         <Component class="java.awt.Label" name="label1">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="label1"/>
-          </Properties>
         </Component>
       </SubComponents>
     </Container>
