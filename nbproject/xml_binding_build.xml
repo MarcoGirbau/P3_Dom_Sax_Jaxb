@@ -25,5 +25,19 @@
         <copy todir="${build.generated.sources.dir}/jaxb">
             <fileset dir="build/generated/jaxbCache/javalibro"/>
         </copy>
+        <mkdir dir="build/generated/jaxbCache/javaLibros_Binding"/>
+        <xjc destdir="build/generated/jaxbCache/javaLibros_Binding" catalog="catalog.xml">
+            <classpath>
+                <pathelement location="${src.dir}"/>
+                <pathelement path="${jaxbwiz.xjcrun.classpath}"/>
+            </classpath>
+            <arg value="-xmlschema"/>
+            <schema file="xml-resources/jaxb/javaLibros_Binding/LibrosEsquema.xsd"/>
+            <depends file="xml-resources/jaxb/javaLibros_Binding/LibrosEsquema.xsd"/>
+            <produces dir="build/generated/jaxbCache/javaLibros_Binding"/>
+        </xjc>
+        <copy todir="${build.generated.sources.dir}/jaxb">
+            <fileset dir="build/generated/jaxbCache/javaLibros_Binding"/>
+        </copy>
     </target>
 </project>

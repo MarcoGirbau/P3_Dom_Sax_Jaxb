@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
     <system systemId="file:/D:/DOCUMENTOS/NetBeansProjects/P3_MarcoGirbau/../../../Marco%20Girbau/Acceso%20a%20Datos/LibrosEsquema.xsd" uri="xml-resources/jaxb/javalibro/LibrosEsquema.xsd"/>
+    <system systemId="file:/C:/Users/marco/OneDrive/Documentos/NetBeansProjects/P3_Dom_Sax_Jaxb/xml-resources/jaxb/javalibro/LibrosEsquema.xsd" uri="xml-resources/jaxb/javaLibros_Binding/LibrosEsquema.xsd"/>
 </catalog>
