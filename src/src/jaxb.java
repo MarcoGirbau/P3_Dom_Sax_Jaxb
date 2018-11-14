@@ -7,8 +7,7 @@ import java.io.File;
 import java.util.List;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Unmarshaller;
-import libros.Libros;
-
+import generated.Libros;
 
 /**
  * @author Marco Girbau
@@ -50,7 +49,7 @@ public class jaxb
             cadena_resultado = cadena_resultado + "\n" + "Publicado en: " + lLibros.get(i).getPublicadoEn();
             cadena_resultado = cadena_resultado + "\n" + "El Título es: " + lLibros.get(i).getTitulo();
             cadena_resultado = cadena_resultado + "\n" + "El Autor es: " + lLibros.get(i).getAutor();
-            cadena_resultado = cadena_resultado + "\n" + "La Editorial es: " + lLibros.get(i).getEditorial();
+            //cadena_resultado = cadena_resultado + "\n" + "La Editorial es: " + lLibros.get(i).getEditorial();
             cadena_resultado = cadena_resultado + "\n -----------------------------";
         }
         return cadena_resultado;

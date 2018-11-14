@@ -11,33 +11,19 @@
     <target name="jaxb-code-generation" depends="xjc-typedef-target,-do-init,-init-macrodef-javac">
         <mkdir dir="${build.generated.sources.dir}/jaxb" xmlns:s="http://xml.netbeans.org/schema/JAXBWizConfig"/>
         <mkdir dir="build/generated/jaxbCache" xmlns:s="http://xml.netbeans.org/schema/JAXBWizConfig"/>
-        <mkdir dir="build/generated/jaxbCache/javalibro"/>
-        <xjc package="libros" destdir="build/generated/jaxbCache/javalibro" catalog="catalog.xml">
+        <mkdir dir="build/generated/jaxbCache/javalibros_binding"/>
+        <xjc destdir="build/generated/jaxbCache/javalibros_binding" catalog="catalog.xml">
             <classpath>
                 <pathelement location="${src.dir}"/>
                 <pathelement path="${jaxbwiz.xjcrun.classpath}"/>
             </classpath>
             <arg value="-xmlschema"/>
-            <schema file="xml-resources/jaxb/javalibro/LibrosEsquema.xsd"/>
-            <depends file="xml-resources/jaxb/javalibro/LibrosEsquema.xsd"/>
-            <produces dir="build/generated/jaxbCache/javalibro"/>
+            <schema file="xml-resources/jaxb/javalibros_binding/LibrosEsquema.xsd"/>
+            <depends file="xml-resources/jaxb/javalibros_binding/LibrosEsquema.xsd"/>
+            <produces dir="build/generated/jaxbCache/javalibros_binding"/>
         </xjc>
         <copy todir="${build.generated.sources.dir}/jaxb">
-            <fileset dir="build/generated/jaxbCache/javalibro"/>
-        </copy>
-        <mkdir dir="build/generated/jaxbCache/javaLibros_Binding"/>
-        <xjc destdir="build/generated/jaxbCache/javaLibros_Binding" catalog="catalog.xml">
-            <classpath>
-                <pathelement location="${src.dir}"/>
-                <pathelement path="${jaxbwiz.xjcrun.classpath}"/>
-            </classpath>
-            <arg value="-xmlschema"/>
-            <schema file="xml-resources/jaxb/javaLibros_Binding/LibrosEsquema.xsd"/>
-            <depends file="xml-resources/jaxb/javaLibros_Binding/LibrosEsquema.xsd"/>
-            <produces dir="build/generated/jaxbCache/javaLibros_Binding"/>
-        </xjc>
-        <copy todir="${build.generated.sources.dir}/jaxb">
-            <fileset dir="build/generated/jaxbCache/javaLibros_Binding"/>
+            <fileset dir="build/generated/jaxbCache/javalibros_binding"/>
         </copy>
     </target>
 </project>
