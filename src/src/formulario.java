@@ -31,7 +31,7 @@ public class formulario extends javax.swing.JFrame
         int a;
         try
         {
-            JFileChooser jfc = new JFileChooser();
+            JFileChooser jfc = new JFileChooser();//viva stackoverflow
             jfc.setDialogType(JFileChooser.OPEN_DIALOG);
             a = jfc.showOpenDialog(this);
         
@@ -213,11 +213,11 @@ public class formulario extends javax.swing.JFrame
     }//GEN-LAST:event_jMenuDomMousePressed
 
     private void jButtonDOMMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonDOMMousePressed
-        jTextArea1.append(gestordom.recorrerdomymostrar());
+        jTextArea1.setText(gestordom.recorrerdomymostrar());
     }//GEN-LAST:event_jButtonDOMMousePressed
 
     private void jButtonSAXMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSAXMousePressed
-        jTextArea1.append(gestorsax.recorrersaxymostrar(gestorsax.ficheroXML, gestorsax.sh, gestorsax.parser));
+        jTextArea1.setText(gestorsax.recorrersaxymostrar(gestorsax.ficheroXML, gestorsax.sh, gestorsax.parser));
     }//GEN-LAST:event_jButtonSAXMousePressed
 
     private void jMenuJaxbMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuJaxbMousePressed

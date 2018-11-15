@@ -47,7 +47,6 @@ public class sax
             e.printStackTrace();
             return "error al parsear con SAX";
         }        
-    
     }
 }
 
@@ -81,7 +80,7 @@ class ManejadorSAX extends DefaultHandler
         }
         else if(qName.equals("libros"))//Mejora del sax original
         {
-            aux = "Estos son los libros del documento seleccionado:";
+            aux = "Se van a mostrar los libros de este documento: ";
             cadena_resultado = aux + cadena_resultado;
         }
     }
