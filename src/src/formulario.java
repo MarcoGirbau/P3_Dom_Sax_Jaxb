@@ -16,7 +16,7 @@ public class formulario extends javax.swing.JFrame
 {
     dom gestordom = new dom();
     jaxb gestorjaxb = new jaxb();
-//    sax gestorsax = new sax();
+    sax gestorsax = new sax();
     /**
      * Creates new form formulario
      */
@@ -68,9 +68,9 @@ public class formulario extends javax.swing.JFrame
         label1 = new java.awt.Label();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuDom = new javax.swing.JMenuItem();
+        jMenuSax = new javax.swing.JMenuItem();
+        jMenuJaxb = new javax.swing.JMenuItem();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -131,9 +131,9 @@ public class formulario extends javax.swing.JFrame
                                 .addComponent(jButtonDOM)
                                 .addGap(18, 18, 18)
                                 .addComponent(jButtonSAX, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(44, 44, 44)
+                                .addGap(18, 18, 18)
                                 .addComponent(jButtonJAXB, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))))
+                                .addGap(0, 26, Short.MAX_VALUE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(128, 128, 128)))
@@ -156,29 +156,29 @@ public class formulario extends javax.swing.JFrame
 
         jMenu1.setText("File");
 
-        jMenuItem1.setText("Abrir DOM");
-        jMenuItem1.addMouseListener(new java.awt.event.MouseAdapter() {
+        jMenuDom.setText("Abrir DOM");
+        jMenuDom.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jMenuItem1MousePressed(evt);
+                jMenuDomMousePressed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        jMenu1.add(jMenuDom);
 
-        jMenuItem2.setText("Abrir SAX");
-        jMenuItem2.addMouseListener(new java.awt.event.MouseAdapter() {
+        jMenuSax.setText("Abrir SAX");
+        jMenuSax.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jMenuItem2MousePressed(evt);
+                jMenuSaxMousePressed(evt);
             }
         });
-        jMenu1.add(jMenuItem2);
+        jMenu1.add(jMenuSax);
 
-        jMenuItem3.setText("Abrir JAXB");
-        jMenuItem3.addMouseListener(new java.awt.event.MouseAdapter() {
+        jMenuJaxb.setText("Abrir JAXB");
+        jMenuJaxb.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jMenuItem3MousePressed(evt);
+                jMenuJaxbMousePressed(evt);
             }
         });
-        jMenu1.add(jMenuItem3);
+        jMenu1.add(jMenuJaxb);
 
         jMenuBar1.add(jMenu1);
 
@@ -198,7 +198,7 @@ public class formulario extends javax.swing.JFrame
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem1MousePressed
+    private void jMenuDomMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuDomMousePressed
         File fichero = selecDia();
         int gdom = gestordom.abrir_xml_dom(fichero);
         
@@ -210,17 +210,17 @@ public class formulario extends javax.swing.JFrame
         {
             label1.setText("No se ha podido obtener el árbol DOM.");
         }
-    }//GEN-LAST:event_jMenuItem1MousePressed
+    }//GEN-LAST:event_jMenuDomMousePressed
 
     private void jButtonDOMMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonDOMMousePressed
         jTextArea1.append(gestordom.recorrerdomymostrar());
     }//GEN-LAST:event_jButtonDOMMousePressed
 
     private void jButtonSAXMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSAXMousePressed
-        
+        jTextArea1.append(gestorsax.recorrersaxymostrar(gestorsax.ficheroXML, gestorsax.sh, gestorsax.parser));
     }//GEN-LAST:event_jButtonSAXMousePressed
 
-    private void jMenuItem3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem3MousePressed
+    private void jMenuJaxbMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuJaxbMousePressed
         File fichero = selecDia();
         int gjaxb = gestorjaxb.abrir_XML_JAXB(fichero);
         
@@ -232,11 +232,21 @@ public class formulario extends javax.swing.JFrame
         {
             label1.setText("No se ha podido obtener el JAXB.");
         }
-    }//GEN-LAST:event_jMenuItem3MousePressed
+    }//GEN-LAST:event_jMenuJaxbMousePressed
 
-    private void jMenuItem2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem2MousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem2MousePressed
+    private void jMenuSaxMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuSaxMousePressed
+        File fichero = selecDia();
+        int gsax = gestorsax.abrir_xml_sax(fichero);
+        
+        if(gsax == 0)
+        {
+            label1.setText("Se ha obtenido el SAX.");
+        }
+        else if(gsax == -1)
+        {
+            label1.setText("No se ha podido obtener el SAX.");
+        }
+    }//GEN-LAST:event_jMenuSaxMousePressed
 
     private void jButtonJAXBMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonJAXBMousePressed
         jTextArea1.setText(gestorjaxb.recorrerJAXByMostrar());
@@ -285,9 +295,9 @@ public class formulario extends javax.swing.JFrame
     private javax.swing.JFileChooser jFileChooser1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuDom;
+    private javax.swing.JMenuItem jMenuJaxb;
+    private javax.swing.JMenuItem jMenuSax;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
