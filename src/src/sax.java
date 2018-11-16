@@ -65,18 +65,18 @@ class ManejadorSAX extends DefaultHandler
     {
         if(qName.equals("libro"))
         {
-            cadena_resultado = cadena_resultado + "\nPublicado en;" + atts.getValue(atts.getQName(0)) + "\n"; 
+            cadena_resultado = cadena_resultado + "\nPublicado en: " + atts.getValue(atts.getQName(0)) + "\n"; 
             ultimoelemento = 1;
         }
         else if(qName.equals("titulo"))
         {
             ultimoelemento = 2;
-            cadena_resultado = cadena_resultado + "\nEl título es;";
+            cadena_resultado = cadena_resultado + "\nEl título es: ";
         }
         else if(qName.equals("autor"))
         {
             ultimoelemento = 3;
-            cadena_resultado = cadena_resultado + "\nEl autor es;";
+            cadena_resultado = cadena_resultado + "\nEl autor es: ";
         }
         else if(qName.equals("libros"))//Mejora del sax original
         {

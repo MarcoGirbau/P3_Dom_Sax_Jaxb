@@ -7,7 +7,7 @@ import java.io.File;
 import java.util.List;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Unmarshaller;
-import libros.Libros;
+import generated.Libros;
 
 /**
  * @author Marco Girbau
