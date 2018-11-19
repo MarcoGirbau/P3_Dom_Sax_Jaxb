@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<libros>
+    <libro publicado="1840">
+        <titulo>Hola Mundo!</titulo>
+        <autor>Niklolai Gogol</autor>
+    </libro>
+    <libro publicado="2008">
+        <titulo>EL Sanador de Caballos</titulo>
+        <autor>Gonzalo Giner</autor>
+    </libro>
+    <libro publicado="1981">
+        <titulo>El Nombre de la Rosa</titulo>
+        <autor>Umberto Eco</autor>
+    </libro>
+    <Libro publicado="123">
+        <Titulo>SDV</Titulo>
+        <Autor>svbvsv</Autor>
+    </Libro>
+</libros>

@@ -47,6 +47,7 @@ public class formulario extends javax.swing.JFrame
         }     
         return fichero;
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -66,20 +67,20 @@ public class formulario extends javax.swing.JFrame
         jButtonSAX = new javax.swing.JButton();
         jButtonJAXB = new javax.swing.JButton();
         label1 = new java.awt.Label();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        jInsertar = new javax.swing.JButton();
+        jGuardar1 = new javax.swing.JButton();
+        jCambiar = new javax.swing.JButton();
+        jGuardar2 = new javax.swing.JButton();
         Titulo = new java.awt.TextField();
-        Titulo1 = new java.awt.TextField();
-        Titulo2 = new java.awt.TextField();
+        Autor = new java.awt.TextField();
+        FechaPublicacion = new java.awt.TextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        Titulo3 = new java.awt.TextField();
+        TituloViejo = new java.awt.TextField();
         jLabel5 = new javax.swing.JLabel();
-        Titulo4 = new java.awt.TextField();
+        TituloNuevo = new java.awt.TextField();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuDom = new javax.swing.JMenuItem();
@@ -131,19 +132,23 @@ public class formulario extends javax.swing.JFrame
             }
         });
 
-        jButton1.setText("Insertar");
-
-        jButton2.setText("Guardar");
-
-        jButton3.setText("Cambiar");
-
-        jButton4.setText("Guardar");
-
-        Titulo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TituloActionPerformed(evt);
+        jInsertar.setText("Insertar");
+        jInsertar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jInsertarMousePressed(evt);
             }
         });
+
+        jGuardar1.setText("Guardar");
+        jGuardar1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jGuardar1MousePressed(evt);
+            }
+        });
+
+        jCambiar.setText("Cambiar");
+
+        jGuardar2.setText("Guardar");
 
         jLabel1.setText("Titulo");
 
@@ -153,17 +158,17 @@ public class formulario extends javax.swing.JFrame
 
         jLabel4.setText("Titulo viejo");
 
-        Titulo3.addActionListener(new java.awt.event.ActionListener() {
+        TituloViejo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Titulo3ActionPerformed(evt);
+                TituloViejoActionPerformed(evt);
             }
         });
 
         jLabel5.setText("Titulo nuevo");
 
-        Titulo4.addActionListener(new java.awt.event.ActionListener() {
+        TituloNuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Titulo4ActionPerformed(evt);
+                TituloNuevoActionPerformed(evt);
             }
         });
 
@@ -189,26 +194,26 @@ public class formulario extends javax.swing.JFrame
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Titulo3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(TituloViejo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Titulo4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(TituloNuevo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(Titulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addComponent(jButton1)
+                                            .addComponent(jInsertar)
                                             .addGap(18, 18, 18)
-                                            .addComponent(jButton2))
-                                        .addComponent(Titulo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(Titulo2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jGuardar1))
+                                        .addComponent(Autor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(FechaPublicacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jButton3)
+                                        .addComponent(jCambiar)
                                         .addGap(18, 18, 18)
-                                        .addComponent(jButton4)))
+                                        .addComponent(jGuardar2)))
                                 .addGap(0, 5, Short.MAX_VALUE)))
                         .addContainerGap())))
         );
@@ -229,27 +234,27 @@ public class formulario extends javax.swing.JFrame
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel2)
                         .addGap(8, 8, 8)
-                        .addComponent(Titulo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Autor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Titulo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(FechaPublicacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1)
-                            .addComponent(jButton2))
+                            .addComponent(jInsertar)
+                            .addComponent(jGuardar1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Titulo3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(TituloViejo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(1, 1, 1)
-                        .addComponent(Titulo4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(TituloNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton3)
-                            .addComponent(jButton4)))
+                            .addComponent(jCambiar)
+                            .addComponent(jGuardar2)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -356,17 +361,26 @@ public class formulario extends javax.swing.JFrame
         jTextArea1.setText(gestorjaxb.recorrerJAXByMostrar());
     }//GEN-LAST:event_jButtonJAXBMousePressed
 
-    private void TituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TituloActionPerformed
+    private void TituloViejoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TituloViejoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TituloActionPerformed
+    }//GEN-LAST:event_TituloViejoActionPerformed
 
-    private void Titulo3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Titulo3ActionPerformed
+    private void TituloNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TituloNuevoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Titulo3ActionPerformed
+    }//GEN-LAST:event_TituloNuevoActionPerformed
 
-    private void Titulo4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Titulo4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Titulo4ActionPerformed
+    private void jInsertarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jInsertarMousePressed
+        Document documento = gestordom.doc;
+        String titulo = Titulo.getText();
+        String autor = Autor.getText();
+        String ano = FechaPublicacion.getText();
+        
+        gestordom.annadirDom(documento, titulo, autor, ano);
+    }//GEN-LAST:event_jInsertarMousePressed
+
+    private void jGuardar1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jGuardar1MousePressed
+        
+    }//GEN-LAST:event_jGuardar1MousePressed
 
     /**
      * @param args the command line arguments
@@ -404,20 +418,20 @@ public class formulario extends javax.swing.JFrame
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private java.awt.TextField Autor;
+    private java.awt.TextField FechaPublicacion;
     private java.awt.TextField Titulo;
-    private java.awt.TextField Titulo1;
-    private java.awt.TextField Titulo2;
-    private java.awt.TextField Titulo3;
-    private java.awt.TextField Titulo4;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private java.awt.TextField TituloNuevo;
+    private java.awt.TextField TituloViejo;
     private javax.swing.JButton jButtonDOM;
     private javax.swing.JButton jButtonJAXB;
     private javax.swing.JButton jButtonSAX;
+    private javax.swing.JButton jCambiar;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JFileChooser jFileChooser1;
+    private javax.swing.JButton jGuardar1;
+    private javax.swing.JButton jGuardar2;
+    private javax.swing.JButton jInsertar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

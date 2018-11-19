@@ -5,12 +5,19 @@
  */
 package src;
 
+import com.sun.org.apache.xml.internal.serialize.OutputFormat;
+import com.sun.org.apache.xml.internal.serialize.XMLSerializer;
 import java.io.File;
+import java.io.FileOutputStream;
+import javax.swing.JFileChooser;
+import org.w3c.dom.Document;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.*;
+import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-import org.w3c.dom.Document;
+import org.w3c.dom.Text;
 
 /**
  * @author Marco Girbau
@@ -87,5 +94,71 @@ public class dom
 
     String recorrerdomymostrar(Document doc) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    //Método para añadir un nuevo nodo al DOM.
+    
+    //Método para añadir un nuevo nodo al DOM.
+    
+    public int annadirDom(Document doc, String titulo, String autor, String anno)
+    {
+        try
+        {
+            Node nTitulo=doc.createElement("Titulo");
+            Node nTitulo_text= doc.createTextNode(titulo);
+            //añadimos el nodo de texto creado como hijo del elemento título.
+            nTitulo.appendChild(nTitulo_text);
+            //Autor.
+            Node nAutor=doc.createElement("Autor");
+            Node nAutor_text=doc.createTextNode(autor);
+            //añadimos el nodo de texto.
+            nAutor.appendChild(nAutor_text);
+            //Creamos un nodo de tipo libro.
+            Node nLibro=doc.createElement("Libro");
+            //Añadimos el atributo.
+            ((Element)nLibro).setAttribute("publicado",anno);
+            //Se añade a este nodo Libro el nodo autor y titulo creado antes.
+            nLibro.appendChild(nTitulo);
+            nLibro.appendChild(nAutor);
+            
+            //Obtenemos el primer nodo del documento y le añadimos como hijo el nodo Libro
+            Node raiz=doc.getChildNodes().item(0);
+            raiz.appendChild(nLibro);
+            
+            return 0;
+            
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+            return -1;
+        }
+    }
+    
+    public int guardarDomComoFile(String nombreArchivo) 
+    {
+        try 
+        {
+            File archivo_xml = new File(nombreArchivo);
+
+            OutputFormat format = new OutputFormat(doc); //especificamos el formato de salida.
+            //Especificamos que la salida esté indentada
+            format.setIndenting(true);
+            //Escribe el contenido en el file.
+            XMLSerializer serializer = new XMLSerializer(new FileOutputStream(archivo_xml), format);
+
+            serializer.serialize(doc);
+
+            System.out.println(nombreArchivo);
+
+            return 0;
+
+        } 
+        catch (Exception e) 
+        {
+            System.out.println("No se ha guardado el archivo");
+            return -1;
+        }
+
     }
 }
