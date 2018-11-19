@@ -308,9 +308,6 @@
           </Properties>
         </Component>
         <Component class="java.awt.TextField" name="TituloViejo">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TituloViejoActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
           <Properties>
@@ -318,9 +315,6 @@
           </Properties>
         </Component>
         <Component class="java.awt.TextField" name="TituloNuevo">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TituloNuevoActionPerformed"/>
-          </Events>
         </Component>
       </SubComponents>
     </Container>

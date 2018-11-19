@@ -25,15 +25,14 @@ public class formulario extends javax.swing.JFrame
         jDialog1.setSize(800,470);
     }
     
-    private File selecDia()
+    private File selecDia()//Bascicamente coger el archivo
     {
         File fichero = null;
-        int a;
         try
         {
             JFileChooser jfc = new JFileChooser();//viva stackoverflow
             jfc.setDialogType(JFileChooser.OPEN_DIALOG);
-            a = jfc.showOpenDialog(this);
+            int a = jfc.showOpenDialog(this);
         
             if(a == JFileChooser.APPROVE_OPTION)
             {
@@ -46,6 +45,30 @@ public class formulario extends javax.swing.JFrame
             return null;
         }     
         return fichero;
+    }
+    
+    private void guardar() 
+    {
+        JFileChooser jfc = new JFileChooser();
+        jfc.setMultiSelectionEnabled(false); //Solo una cosa cogemos
+        jfc.setDialogType(JFileChooser.OPEN_DIALOG);
+
+        int selec = jfc.showSaveDialog(this);
+
+        if (selec == JFileChooser.APPROVE_OPTION)
+        {
+            File fisssero = jfc.getSelectedFile();
+            String n = fisssero.getName();
+            String exten = n.substring(n.lastIndexOf('.') + 1);//Para que no pueda coger formatos erroneos
+
+            if (exten.equalsIgnoreCase("xml")) 
+            {
+                System.out.println("Entro");
+                gestordom.guardarDomComoFile(n);
+                System.out.println(n);
+            }
+        }
+
     }
     
 
@@ -158,19 +181,7 @@ public class formulario extends javax.swing.JFrame
 
         jLabel4.setText("Titulo viejo");
 
-        TituloViejo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TituloViejoActionPerformed(evt);
-            }
-        });
-
         jLabel5.setText("Titulo nuevo");
-
-        TituloNuevo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TituloNuevoActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -361,14 +372,6 @@ public class formulario extends javax.swing.JFrame
         jTextArea1.setText(gestorjaxb.recorrerJAXByMostrar());
     }//GEN-LAST:event_jButtonJAXBMousePressed
 
-    private void TituloViejoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TituloViejoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TituloViejoActionPerformed
-
-    private void TituloNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TituloNuevoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TituloNuevoActionPerformed
-
     private void jInsertarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jInsertarMousePressed
         Document documento = gestordom.doc;
         String titulo = Titulo.getText();
@@ -376,10 +379,11 @@ public class formulario extends javax.swing.JFrame
         String ano = FechaPublicacion.getText();
         
         gestordom.annadirDom(documento, titulo, autor, ano);
+        jTextArea1.setText(gestordom.recorrerdomymostrar());//Para sacar esto he estado 9 h, dar gracias a mi amigo MiguelAngel que me ha dicho de refrescar
     }//GEN-LAST:event_jInsertarMousePressed
 
     private void jGuardar1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jGuardar1MousePressed
-        
+        guardar();
     }//GEN-LAST:event_jGuardar1MousePressed
 
     /**
