@@ -46,31 +46,6 @@ public class formulario extends javax.swing.JFrame
         }     
         return fichero;
     }
-    
-    private void guardar() 
-    {
-        JFileChooser jfc = new JFileChooser();
-        jfc.setMultiSelectionEnabled(false); //Solo una cosa cogemos
-        jfc.setDialogType(JFileChooser.OPEN_DIALOG);
-
-        int selec = jfc.showSaveDialog(this);
-
-        if (selec == JFileChooser.APPROVE_OPTION)
-        {
-            File fisssero = jfc.getSelectedFile();
-            String n = fisssero.getName();
-            String exten = n.substring(n.lastIndexOf('.') + 1);//Para que no pueda coger formatos erroneos
-
-            if (exten.equalsIgnoreCase("xml")) 
-            {
-                System.out.println("Entro");
-                gestordom.guardarDomComoFile(n);
-                System.out.println(n);
-            }
-        }
-
-    }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -383,7 +358,21 @@ public class formulario extends javax.swing.JFrame
     }//GEN-LAST:event_jInsertarMousePressed
 
     private void jGuardar1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jGuardar1MousePressed
-        guardar();
+        JFileChooser jfc = new JFileChooser();
+        jfc.setDialogType(JFileChooser.OPEN_DIALOG);
+
+        if (jfc.showSaveDialog(this) == JFileChooser.APPROVE_OPTION)
+        {
+            File fisssero = jfc.getSelectedFile();
+            String n = fisssero.getName();
+
+            if (n.equals("xml")) 
+            {
+                System.out.println("Entro");
+                gestordom.guardarDomComoFile(n);
+                System.out.println(n);
+            }
+        }
     }//GEN-LAST:event_jGuardar1MousePressed
 
     /**
