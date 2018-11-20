@@ -1,23 +1,20 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Que añada, guarde y luego que pueda modificar
  */
 package src;
+
 
 import com.sun.org.apache.xml.internal.serialize.OutputFormat;
 import com.sun.org.apache.xml.internal.serialize.XMLSerializer;
 import java.io.File;
 import java.io.FileOutputStream;
-import javax.swing.JFileChooser;
 import org.w3c.dom.Document;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.*;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-import org.w3c.dom.Text;
+
 
 /**
  * @author Marco Girbau
@@ -64,6 +61,7 @@ public class dom
                 salida = salida + "\n" + "Publicado en " + datos_nodos[0];
                 salida = salida + "\n" + "El autor es " + datos_nodos[2];
                 salida = salida + "\n" + "El titulo es " + datos_nodos[1];
+                salida = salida + "\n" + "La editorial es " + datos_nodos[3];
                 salida = salida + "\n -----------";
             }
         }
@@ -72,7 +70,7 @@ public class dom
     
     public String[] procesarLibro(Node n)
     {
-        String[] datos = new String[3];
+        String[] datos = new String[4];//Es cuatro porque ponemos la editorial
         Node ntemp = null;
         int contador = 1;
         
@@ -96,11 +94,7 @@ public class dom
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
-    //Método para añadir un nuevo nodo al DOM.
-    
-    //Método para añadir un nuevo nodo al DOM.
-    
-    public int annadirDom(Document doc, String titulo, String autor, String anno)
+    public int annadirDom(Document doc, String titulo, String autor, String anno, String editorial)
     {
         try
         {
@@ -111,6 +105,11 @@ public class dom
             //Autor.
             Node nAutor=doc.createElement("Autor");
             Node nAutor_text=doc.createTextNode(autor);
+            
+            Node nEditorial=doc.createElement("Editorial");
+            Node neditorial_text=doc.createTextNode(editorial);
+            
+            nEditorial.appendChild(neditorial_text);
             //añadimos el nodo de texto.
             nAutor.appendChild(nAutor_text);
             //Creamos un nodo de tipo libro.
@@ -120,6 +119,7 @@ public class dom
             //Se añade a este nodo Libro el nodo autor y titulo creado antes.
             nLibro.appendChild(nTitulo);
             nLibro.appendChild(nAutor);
+            nLibro.appendChild(nEditorial);
             
             //Obtenemos el primer nodo del documento y le añadimos como hijo el nodo Libro
             Node raiz=doc.getChildNodes().item(0);
@@ -135,30 +135,23 @@ public class dom
         }
     }
     
-    public int guardarDomComoFile(String nombreArchivo) 
+    public int guardardomcomofile(String n) 
     {
         try 
         {
-            File archivo_xml = new File(nombreArchivo);
-
-            OutputFormat format = new OutputFormat(doc); //especificamos el formato de salida.
-            //Especificamos que la salida esté indentada
+            //Crea un fichero llamado n
+            File archivo_xml = new File(n);
+            //Especifica el formato de salida
+            OutputFormat format = new OutputFormat(doc);
+            //Especifica que la salida esté indentada.
             format.setIndenting(true);
-            //Escribe el contenido en el file.
+            //Escribe el contenido en el FILE
             XMLSerializer serializer = new XMLSerializer(new FileOutputStream(archivo_xml), format);
-
             serializer.serialize(doc);
-
-            System.out.println(nombreArchivo);
-
+            System.out.println("dzfbsdb");
             return 0;
-
-        } 
-        catch (Exception e) 
-        {
-            System.out.println("No se ha guardado el archivo");
+        } catch (Exception e) {
             return -1;
         }
-
     }
 }

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Libros xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="LibrosEsquema.xsd">
+    <Libro publicado_en="1823">
+        <Titulo>El cap de las cacas</Titulo>
+        <Autor>Adolfo Swasenager</Autor>
+        <Editorial>NoSePonerNombres</Editorial>
+    </Libro>
+    <Libro publicado_en="2108">
+        <Titulo>El colibri de los tontos</Titulo>
+        <Autor>Gonzalo VollDamm</Autor>
+        <Editorial>NoSePonerNombres2</Editorial>
+    </Libro>
+    <Libro publicado_en="1998">
+        <Titulo>El nombre de Marco</Titulo>
+        <Autor>fisssero</Autor>
+        <Editorial>NoSePonerNombres3</Editorial>
+    </Libro>
+    <Libro publicado_en="8764">
+        <Titulo>El nombre de Marco</Titulo>
+        <Autor>fisssero</Autor>
+        <Editorial>NoSePonerNombres4</Editorial>
+    </Libro>
+    <Libro publicado="d&lt;nf&lt;ndf">
+        <Titulo>zdfb</Titulo>
+        <Autor>xzdfnbzxd</Autor>
+        <Editorial>nzdfng</Editorial>
+    </Libro>
+</Libros>

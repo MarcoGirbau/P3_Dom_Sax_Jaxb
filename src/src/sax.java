@@ -78,6 +78,11 @@ class ManejadorSAX extends DefaultHandler
             ultimoelemento = 3;
             cadena_resultado = cadena_resultado + "\nEl autor es: ";
         }
+        else if(qName.equals("editorial"))
+        {
+            ultimoelemento = 4;
+            cadena_resultado = cadena_resultado + "\nLa editorial es: ";
+        }
         else if(qName.equals("libros"))//Mejora del sax original
         {
             aux = "Se van a mostrar los libros de este documento: ";
